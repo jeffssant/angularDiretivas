@@ -15,8 +15,14 @@
             formControlName="name">
     </div>
 
-    <div class="col-auto" *ngIf="ValidErrors('name')">
-      <span class="form-text">Required</span>
+    <div class="col-auto">
+      <span class="form-text"
+            *ngIf="ValidErrors('name')"
+            ErrMsg
+            color="blue">
+
+            Required
+      </span>
     </div>
 
   </div>
