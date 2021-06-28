@@ -6,24 +6,34 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 export class ErrMsgDirective implements OnInit {
 
   htmlElement: ElementRef<HTMLElement>;
-  @Input() color: string = 'red';
-  @Input() msg: string = 'Required';
+  private _color:string = 'red';
+  private _msg:string = 'new Msg';
+
+  @Input() set color(value: string){
+    this._color = value;
+    this.setColor();
+  }
+
+  @Input() set msg(value: string){
+    this._msg = value;
+    this.setMsg();
+  }
 
   constructor(private el: ElementRef<HTMLElement>) {
     this.htmlElement = el;
   }
 
   ngOnInit(): void {
-    this.setColor()
-    this.setMsg();
+    this.setColor();
+    this.setMsg()
   }
 
   setColor() {
-    this.htmlElement.nativeElement.style.color = this.color;
+    this.htmlElement.nativeElement.style.color = this._color;
   }
 
   setMsg(){
-    this.htmlElement.nativeElement.innerText = this.msg;
+    this.htmlElement.nativeElement.innerText = this._msg;
   }
 
 }

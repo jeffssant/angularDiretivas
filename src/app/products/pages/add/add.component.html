@@ -19,8 +19,8 @@
       <span class="form-text"
             *ngIf="ValidErrors('name')"
             ErrMsg
-            color="blue"
-            msg="Required**">
+            [color]="color"
+            [msg]="msg">
 
             Required
       </span>
@@ -30,7 +30,13 @@
 
   <div class="row mt-3">
     <div class="col">
-      <button class="btn btn-primary">Save</button>
+      <button class="btn btn-primary" (click)="changeMsg()">Save</button>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col">
+      <button class="btn btn-primary" (click)="changeColor()">Change color</button>
     </div>
   </div>
 
