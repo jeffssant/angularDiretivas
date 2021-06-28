@@ -17,7 +17,7 @@
 
     <div class="col-auto">
       <span class="form-text"
-            *ngIf="ValidErrors('name')"
+            [valid]="ValidErrors('name')"
             ErrMsg
             [color]="color"
             [msg]="msg">
@@ -46,3 +46,12 @@
 <h3 class="mt-5">Form</h3>
 <pre>valid: {{miform.valid | json}}</pre>
 <pre>value: {{miform.value | json}}</pre>
+
+
+<div class="row mt-5" *customIf="miform.valid" >
+  <div class="col">
+    <div class="alert alert-primary">
+      OK!
+    </div>
+  </div>
+</div>

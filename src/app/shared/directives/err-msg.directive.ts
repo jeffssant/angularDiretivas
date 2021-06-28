@@ -19,6 +19,17 @@ export class ErrMsgDirective implements OnInit {
     this.setMsg();
   }
 
+  @Input() set valid(value: boolean){
+
+    if(!value){
+      this.htmlElement.nativeElement.classList.add('d-none');
+      return;
+    }
+
+    this.htmlElement.nativeElement.classList.remove('d-none');
+
+  }
+
   constructor(private el: ElementRef<HTMLElement>) {
     this.htmlElement = el;
   }
